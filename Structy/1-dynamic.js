@@ -23,3 +23,20 @@ const tribonacci = (n, memo = {}) => {
   memo[n] = tribonacci(n - 1, memo) + tribonacci(n - 2, memo) + tribonacci(n - 3, memo);
   return memo[n];
 };
+
+//----------------------------------------------------------
+// sum possible
+
+const sumPossible = (amount, numbers) => {
+  // todo
+  if (amount === 0) return true;
+  if (amount < 0) return false;
+  
+  for (let num of numbers){
+    const sum = amount - num;
+    if (sumPossible(sum, numbers) === true){
+      return true;
+    }
+  }
+  return false;
+};
