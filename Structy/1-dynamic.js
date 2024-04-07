@@ -54,5 +54,6 @@ const minChange = (amount, coins) => {
     const resultCoin = 1 + minChange(amount - coin, coins)
     min = Math.min(resultCoin, min);
   }
+  console.log(min);
   return min;
 };
