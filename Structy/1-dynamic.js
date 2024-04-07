@@ -40,3 +40,19 @@ const sumPossible = (amount, numbers) => {
   }
   return false;
 };
+
+//----------------------------------------------------------
+// min change
+
+const minChange = (amount, coins) => {
+  // todo
+  if (amount === 0) return 0;
+  if (amount < 0) return Infinity;
+  
+  let min = Infinity;
+  for (let coin of coins){
+    const resultCoin = 1 + minChange(amount - coin, coins)
+    min = Math.min(resultCoin, min);
+  }
+  return min;
+};
