@@ -74,3 +74,22 @@ const countPaths = (grid, r=0, c=0, memo = {}) => {
   memo[pos] = rightPath + leftPath;
   return memo[pos];
 };
+
+//----------------------------------------------------------
+// Max Path Sum
+
+const maxPathSum = (grid, r=0, c=0, memo={}) => {
+  // todo
+  const pos = r + ',' + c;
+  if (pos in memo) return memo[pos];
+  
+  if (r === grid.length || c === grid[0].length) return 0;
+  if (r === grid.length -1 && c === grid[0].length - 1) return grid[r][c];
+  
+  let max = -Infinity
+  const downPath = grid[r][c] + maxPathSum(grid, r + 1, c, memo);
+  const rightPath = grid[r][c] + maxPathSum(grid, r, c + 1, memo);
+  max = Math.max(downPath, rightPath);
+  memo[pos] = max;
+  return memo[pos];
+};
