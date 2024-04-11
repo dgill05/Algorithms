@@ -107,3 +107,17 @@ const nonAdjacentSum = (nums, i = 0, memo = {}) => {
   memo[i] = Math.max(include, exclude);
   return memo[i];
 };
+
+//----------------------------------------------------------
+// summing squares
+const summingSquares = (n) => {
+  // todo
+  if (n === 0) return 0;
+  let min = Infinity
+  for (let i = 1; i <= Math.sqrt(n); i++){
+    const square = i * i
+    const val = 1 + summingSquares(n - square);
+    min = Math.min(min, val);
+  }
+  return min;
+};

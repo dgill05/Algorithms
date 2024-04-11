@@ -13,3 +13,5 @@ var isPalindrome = function(s) {
   }
   return true;
 };
+
+console.log(isPalindrome('kayak'))
