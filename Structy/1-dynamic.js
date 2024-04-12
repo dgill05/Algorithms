@@ -121,3 +121,20 @@ const summingSquares = (n) => {
   }
   return min;
 };
+
+//----------------------------------------------------------
+// counting change
+
+const countingChange = (amount, coins, i = 0) => {
+  // todo
+  if (amount === 0) return 1;
+  
+  
+  let coin = coins[i];
+  let total = 0;
+  for (let qty = 0; qty * coin <= amount; qty++){
+    const remainder = amount - qty * coin;
+    total += countingChange(remainder, coins, i + 1);
+  }
+  return total;
+};
