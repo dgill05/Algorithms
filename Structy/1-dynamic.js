@@ -138,3 +138,22 @@ const countingChange = (amount, coins, i = 0) => {
   }
   return total;
 };
+
+//----------------------------------------------------------
+// array stepper
+
+const arrayStepper = (nums, i = 0, memo = {}) => {
+  // todo
+  if (memo.hasOwnProperty(i)) return memo[i];
+  if (i === nums.length - 1) return true;
+  
+  const maxStep = nums[i];
+  for (let step = 1 ; step <= maxStep; step++){
+    if (arrayStepper(nums, i + step, memo) === true){
+      memo[i] = true;
+      return memo[i];
+    }
+}
+  memo[i] = false;
+  return memo[i];
+};
