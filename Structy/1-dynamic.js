@@ -157,3 +157,30 @@ const arrayStepper = (nums, i = 0, memo = {}) => {
   memo[i] = false;
   return memo[i];
 };
+
+//----------------------------------------------------------
+// max palin subsequence
+
+const maxPalinSubsequence = (str, i = 0, j = str.length - 1, memo = {}) => {
+  // todo
+  // if (str.length === 0) return 0;
+  const pos = i + ',' + j;
+  if (pos in memo) return memo[pos];
+  if (i === j) return 1;
+  if (i > j) return 0;
+  
+  const first = str[i];
+  const last = str[j];
+  
+
+  if (first === last){
+    memo[pos] = 2 + maxPalinSubsequence(str, i + 1, j - 1, memo);
+    return memo[pos]
+  } else {
+    const left = maxPalinSubsequence(str, i + 1, j, memo);
+    const right = maxPalinSubsequence(str, i, j - 1, memo);
+    memo[pos] = Math.max(left, right);
+    return memo[pos];
+  }
+
+};
