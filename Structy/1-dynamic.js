@@ -203,3 +203,23 @@ const overlapSubsequence = (str1, str2, i = 0, j = 0, memo = {}) => {
     return memo[key];
   }
 };
+
+//----------------------------------------------------------
+// can concat
+
+const canConcat = (s, words, memo = {}) => {
+  // todo
+  if (s in memo) return memo[s];
+  if (s.length === 0) return true;
+  
+  for (let word of words){
+    if (s.startsWith(word)){
+      canConcat(s.slice(word.length), words, memo)
+        memo[s] = true;
+        return memo[s];
+      
+    }
+  }
+  memo[s] = false;
+  return memo[s];
+};
