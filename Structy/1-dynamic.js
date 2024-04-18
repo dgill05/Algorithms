@@ -223,3 +223,32 @@ const canConcat = (s, words, memo = {}) => {
   memo[s] = false;
   return memo[s];
 };
+
+//----------------------------------------------------------
+// quickest concat
+
+const quickestConcat = (s, words) => {
+  // todo
+  const answer = quickestConcat_(s, words);
+  if ( answer === Infinity){
+    return -1;
+  } else {
+    return answer;
+  }
+};
+
+const quickestConcat_ = (s, words, memo = {}) => {
+  // todo
+  if (s.length === 0) return 0;
+  if (s in memo) return memo[s];
+  
+  let min = Infinity;
+  for (let word of words){
+    if (s.startsWith(word) === true){
+      const attempt = 1 + quickestConcat_(s.slice(word.length), words, memo)
+      min = Math.min(min, attempt);
+    }
+  }
+  memo[s] = min;
+  return min;
+};
