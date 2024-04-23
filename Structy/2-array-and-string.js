@@ -25,3 +25,28 @@ const uncompress = (s) => {
   }
   return result;
 };
+
+//----------------------------------------------------------
+// compress
+
+const compress = (s) => {
+  // todo
+  let i = 0;
+  let j = 0;
+  let result = [];
+  while (j <= s.length){
+    console.log('i ' , s[i], i)
+    console.log('j ' , s[j], j)
+    if (s[j] === s[i]){
+      j++;
+    } else {
+      const num = s.slice(i, j);
+      console.log('num ', num)
+      if (num.length > 1) result.push(num.length);
+      result.push(s[i]);
+      i = j;
+      j++;
+    }
+  }
+  return result.join('');
+};
