@@ -81,3 +81,29 @@ const anagrams = (s1, s2) => {
   
   return true;
 };
+
+//----------------------------------------------------------
+// most frequent char
+
+const mostFrequentChar = (s) => {
+  // todo
+  const cache = {};
+  for (let char of s) {
+    if (!cache[char]){
+      cache[char] = 1
+    } else {
+      cache[char]++;
+    }
+  }
+  
+  let maxKey = '';
+  let maxValue = -Infinity;
+  for (let char in cache){
+    const num = Number(cache[char]);
+    if (num > maxValue){
+      maxValue = num;
+      maxKey = char;
+    }
+  }
+  return maxKey;
+};
