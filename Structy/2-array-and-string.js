@@ -107,3 +107,24 @@ const mostFrequentChar = (s) => {
   }
   return maxKey;
 };
+
+//----------------------------------------------------------
+// pair sum
+
+const pairSum = (numbers, targetSum) => {
+  
+  const cache = {};
+  const result = []
+  for (let i = 0; i < numbers.length; i++){
+    const complement = targetSum - numbers[i];
+    
+    if (complement in cache){
+      console.log('i ', i)
+      console.log('comp ', cache[complement])
+      result.push(i)
+      result.push(cache[complement])
+    }
+    cache[numbers[i]] = i;
+  }
+  return cache;
+};
