@@ -128,3 +128,16 @@ const pairSum = (numbers, targetSum) => {
   }
   return cache;
 };
+
+//----------------------------------------------------------
+// pair product
+const pairProduct = (numbers, targetProduct) => {
+  // todo
+  const cache = {};
+  for (let i = 0; i < numbers.length; i++){
+    const product = targetProduct / numbers[i];
+    if (product in cache) return [cache[product], i];
+    cache[numbers[i]] = i;
+  }
+  
+};
