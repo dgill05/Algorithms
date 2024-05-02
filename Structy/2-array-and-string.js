@@ -131,6 +131,7 @@ const pairSum = (numbers, targetSum) => {
 
 //----------------------------------------------------------
 // pair product
+
 const pairProduct = (numbers, targetProduct) => {
   // todo
   const cache = {};
@@ -139,5 +140,19 @@ const pairProduct = (numbers, targetProduct) => {
     if (product in cache) return [cache[product], i];
     cache[numbers[i]] = i;
   }
-  
+};
+
+//----------------------------------------------------------
+// intersection
+
+const intersection = (a, b) => {
+  // todo
+  const result = [];
+  const setA = new Set(a);
+  for (let item of b) {
+    if (setA.has(item)) {
+      result.push(item);
+    }
+  }
+  return result;
 };
