@@ -156,3 +156,31 @@ const intersection = (a, b) => {
   }
   return result;
 };
+
+//----------------------------------------------------------
+// fiveSort
+
+const fiveSort = (nums) => {
+  // todo
+  let i = 0;
+  let j = nums.length - 1;
+  
+  while (i < j){
+    if (nums[i] === 5 && nums[j] !== 5){
+      console.log('hey')
+      const temp = nums[j];
+      nums[j] = nums[i];
+      nums[i] = temp;
+      i++;
+      j--;
+      
+    } else if (nums[i] !== 5) {
+      i++;
+    } else if (nums[i] === 5 && nums[j] === 5) {
+      j--;
+    }
+  }
+  
+  return nums;
+};
+
