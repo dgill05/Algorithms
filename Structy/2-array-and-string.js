@@ -167,13 +167,11 @@ const fiveSort = (nums) => {
   
   while (i < j){
     if (nums[i] === 5 && nums[j] !== 5){
-      console.log('hey')
       const temp = nums[j];
       nums[j] = nums[i];
       nums[i] = temp;
       i++;
       j--;
-      
     } else if (nums[i] !== 5) {
       i++;
     } else if (nums[i] === 5 && nums[j] === 5) {
