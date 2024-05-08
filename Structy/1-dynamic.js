@@ -6,10 +6,6 @@ const fib = (n) => {
   return fib(n-1) + fib(n-2)
 };
 
-module.exports = {
-  fib,
-};
-
 //----------------------------------------------------------
 // Tribonacci
 
@@ -293,4 +289,8 @@ const knightlyNumber = (n, m, kr, kc, pr, pc, memo = {}) => {
   
   memo[key] = count;
   return count;
+};
+
+module.exports = {
+  fib,
 };
