@@ -16,3 +16,15 @@ const linkedListValues = (head, result = []) => {
   }
   return result
 };
+
+//----------------------------------------------------------
+// sum list
+
+const sumList = (head, sum = 0) => {
+  // todo
+  if (head){
+    sum += head.val;
+    return sumList(head.next, sum);
+  }
+  return sum;
+};
