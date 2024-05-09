@@ -1,4 +1,20 @@
-const { fib } = require('./1-dynamic'); // adjust the path as needed if your test file is in a different directory
+const {
+  fib,
+  tribonacci,
+  sumPossible,
+  minChange,
+  countPaths,
+  maxPathSum,
+  nonAdjacentSum,
+  summingSquares,
+  countingChange,
+  arrayStepper,
+  maxPalinSubsequence,
+  overlapSubsequence,
+  canConcat,
+  quickestConcat,
+  knightlyNumber
+} = require('./1-dynamic');// adjust the path as needed if your test file is in a different directory
 
 describe('fib function', () => {
   test('fib(0) should return 0', () => {
@@ -24,4 +40,10 @@ describe('fib function', () => {
   test('fib(20) should return 6765', () => {
     expect(fib(20)).toBe(6765);
   });
+});
+
+describe('tribonacci function', ()=> {
+  test('tribonacci(0) should return 0', () => {
+    expect(tribonacci(0).toBe(0));
+  })
 });
