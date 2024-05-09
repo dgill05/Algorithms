@@ -28,3 +28,12 @@ const sumList = (head, sum = 0) => {
   }
   return sum;
 };
+
+//----------------------------------------------------------
+// linked list find
+
+const linkedListFind = (head, target) => {
+  if (head === null) return false;
+  if (head.val === target) return true;
+  return linkedListFind(head.next, target);
+};
