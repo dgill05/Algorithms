@@ -44,6 +44,6 @@ describe('fib function', () => {
 
 describe('tribonacci function', ()=> {
   test('tribonacci(0) should return 0', () => {
-    expect(tribonacci(0).toBe(0));
+    expect(tribonacci(0)).toBe(0);
   })
 });
