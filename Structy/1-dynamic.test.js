@@ -14,7 +14,7 @@ const {
   canConcat,
   quickestConcat,
   knightlyNumber
-} = require('./1-dynamic');// adjust the path as needed if your test file is in a different directory
+} = require('./1-dynamic'); // adjust the path as needed if your test file is in a different directory
 
 describe('fib function', () => {
   test('fib(0) should return 0', () => {
@@ -42,8 +42,8 @@ describe('fib function', () => {
   });
 });
 
-describe('tribonacci function', ()=> {
+describe('tribonacci function', () => {
   test('tribonacci(0) should return 0', () => {
     expect(tribonacci(0)).toBe(0);
-  })
+  });
 });

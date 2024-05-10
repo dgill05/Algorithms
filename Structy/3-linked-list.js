@@ -10,11 +10,11 @@ class Node {
 
 const linkedListValues = (head, result = []) => {
   // todo
-  if (head){
+  if (head) {
     result.push(head.val);
     linkedListValues(head.next, result);
   }
-  return result
+  return result;
 };
 
 //----------------------------------------------------------
@@ -22,7 +22,7 @@ const linkedListValues = (head, result = []) => {
 
 const sumList = (head, sum = 0) => {
   // todo
-  if (head){
+  if (head) {
     sum += head.val;
     return sumList(head.next, sum);
   }
@@ -36,4 +36,14 @@ const linkedListFind = (head, target) => {
   if (head === null) return false;
   if (head.val === target) return true;
   return linkedListFind(head.next, target);
+};
+
+//----------------------------------------------------------
+// get node value
+
+const getNodeValue = (head, index, count = 0) => {
+  // todo
+  if (head === null) return null;
+  if (index === count) return head.val;
+  return getNodeValue(head.next, index, count + 1);
 };
