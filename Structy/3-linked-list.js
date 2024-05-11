@@ -47,3 +47,19 @@ const getNodeValue = (head, index, count = 0) => {
   if (index === count) return head.val;
   return getNodeValue(head.next, index, count + 1);
 };
+
+//----------------------------------------------------------
+// reverse list
+
+const reverseList = (head) => {
+  // todo
+  let current = head;
+  let prev = null;
+  while (current) {
+    const temp = current.next;
+    current.next = prev;
+    prev = current;
+    current = temp;
+  }
+  return prev;
+};
