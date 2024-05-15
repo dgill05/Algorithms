@@ -126,3 +126,26 @@ const isUnivalueList = (head, prevVal = null) => {
     return false;
   }
 };
+
+//----------------------------------------------------------
+// longest streak
+
+const longestStreak = (head) => {
+  // todo
+  if (head === null) return 0;
+  let max = 0;
+  let count = 1;
+  let prev = null;
+  let current = head;
+  while (current) {
+    if (prev === current.val) {
+      count++;
+    } else {
+      count = 1;
+    }
+    if (count > max) max = count;
+    prev = current.val;
+    current = current.next;
+  }
+  return max;
+};
