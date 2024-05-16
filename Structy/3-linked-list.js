@@ -149,3 +149,23 @@ const longestStreak = (head) => {
   }
   return max;
 };
+
+//----------------------------------------------------------
+// remove node
+
+const removeNode = (head, targetVal) => {
+  // todo
+  if (head.val === targetVal) return head.next;
+
+  let current = head;
+  let prev = null;
+  while (current) {
+    if (current.val === targetVal) {
+      prev.next = current.next;
+      break;
+    }
+    prev = current;
+    current = current.next;
+  }
+  return head;
+};
