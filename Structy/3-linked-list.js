@@ -169,3 +169,29 @@ const removeNode = (head, targetVal) => {
   }
   return head;
 };
+
+//----------------------------------------------------------
+// insert node
+
+const insertNode = (head, value, index) => {
+  // todo
+  if (index === 0) {
+    const first = new Node(value);
+    first.next = head;
+    return first;
+  }
+  let count = 0;
+  let current = head;
+  while (current) {
+    console.log('count', count);
+    if (count === index - 1) {
+      const next = current.next;
+      current.next = new Node(value);
+      current.next.next = next;
+    }
+
+    count++;
+    current = current.next;
+  }
+  return head;
+};
