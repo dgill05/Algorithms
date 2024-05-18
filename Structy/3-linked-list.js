@@ -195,3 +195,20 @@ const insertNode = (head, value, index) => {
   }
   return head;
 };
+
+//----------------------------------------------------------
+// create linked list
+
+const createLinkedList = (values) => {
+  // todo
+  if (values === null) return [];
+  let list = new Node(null);
+  const result = list;
+
+  values.forEach((el) => {
+    const nextNode = new Node(el);
+    list.next = nextNode;
+    list = list.next;
+  });
+  return result.next;
+};
