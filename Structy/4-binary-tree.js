@@ -43,3 +43,15 @@ const breadthFirstValues = (root) => {
   }
   return result;
 };
+
+//----------------------------------------------------------
+// tree sum
+
+const treeSum = (root, sum = 0) => {
+  // todo
+  if (root === null) return 0;
+  const right = treeSum(root.right, sum);
+  const left = treeSum(root.left, sum);
+  return root.val + right + left;
+};
+
