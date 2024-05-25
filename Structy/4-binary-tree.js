@@ -65,3 +65,13 @@ const treeIncludes = (root, target) => {
 
   return treeIncludes(root.left, target) || treeIncludes(root.right, target);
 };
+
+//----------------------------------------------------------
+// tree min value
+
+const treeMinValue = (root) => {
+  // todo
+  if (root === null) return Infinity;
+
+  return Math.min(root.val, treeMinValue(root.left), treeMinValue(root.right));
+};
