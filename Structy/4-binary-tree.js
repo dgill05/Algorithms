@@ -85,3 +85,25 @@ const maxPathSum = (root) => {
   if (root.left === null && root.right === null) return root.val;
   return root.val + Math.max(maxPathSum(root.left), maxPathSum(root.right));
 };
+
+//----------------------------------------------------------
+// tree path finder
+
+const pathFinder = (root, target) => {
+  // todo
+  if (root === null) return null;
+  if (root.val === target) return [root.val];
+
+  const leftPath = pathFinder(root.left, target);
+  const rightPath = pathFinder(root.right, target);
+
+  if (leftPath) {
+    return [root.val, ...leftPath];
+  }
+
+  if (rightPath) {
+    return [root.val, ...rightPath];
+  }
+
+  return null;
+};
