@@ -107,3 +107,15 @@ const pathFinder = (root, target) => {
 
   return null;
 };
+
+//----------------------------------------------------------
+// tree value count
+
+const treeValueCount = (root, target) => {
+  // todo
+  if (root === null) return 0;
+  const match = root.val === target ? 1 : 0;
+  const left = treeValueCount(root.left, target);
+  const right = treeValueCount(root.right, target);
+  return match + left + right;
+};
