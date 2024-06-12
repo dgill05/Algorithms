@@ -128,3 +128,20 @@ const howHigh = (node) => {
   if (node === null) return -1;
   return 1 + Math.max(howHigh(node.left), howHigh(node.right));
 };
+
+//----------------------------------------------------------
+// bottom right value
+
+const bottomRightValue = (root) => {
+  // todo
+  let result = 0;
+  const queue = [root];
+  while (queue.length) {
+    const node = queue.shift();
+    result = node.val;
+
+    if (node.left) queue.push(node.left);
+    if (node.right) queue.push(node.right);
+  }
+  return result;
+};
