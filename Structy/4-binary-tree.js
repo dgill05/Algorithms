@@ -145,3 +145,24 @@ const bottomRightValue = (root) => {
   }
   return result;
 };
+
+//----------------------------------------------------------
+// all tree paths
+
+const allTreePaths = (root) => {
+  // todo
+  if (root === null) return [];
+  if (root.left === null && root.right === null) return [[root.val]];
+  const path = [];
+
+  const leftPath = allTreePaths(root.left);
+  for (let subPath of leftPath) {
+    path.push([root.val, ...subPath]);
+  }
+
+  const rightPath = allTreePaths(root.right);
+  for (let subPath of rightPath) {
+    path.push([root.val, ...subPath]);
+  }
+  return path;
+};
