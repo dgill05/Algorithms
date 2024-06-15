@@ -166,3 +166,18 @@ const allTreePaths = (root) => {
   }
   return path;
 };
+
+//----------------------------------------------------------
+// tree levels
+
+const treeLevels = (root, result = [], level = 0) => {
+  if (root === null) return [];
+  if (!result[level]) {
+    result[level] = [root.val];
+  } else {
+    result[level].push(root.val);
+  }
+  treeLevels(root.left, result, level + 1); // Use + to increment the level
+  treeLevels(root.right, result, level + 1);
+  return result; // Use + to increment the level
+};
