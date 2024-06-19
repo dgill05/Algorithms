@@ -181,3 +181,40 @@ const treeLevels = (root, result = [], level = 0) => {
   treeLevels(root.right, result, level + 1);
   return result; // Use + to increment the level
 };
+
+//----------------------------------------------------------
+// level averages
+
+const levelAverages = (root) => {
+  if (root === null) return [];
+  const arr = [];
+  const result = [];
+  const stack = [{ node: root, level: 0 }];
+  while (stack.length > 0) {
+    const { node, level } = stack.pop();
+    if (result[level]) {
+      result[level].push(node.val);
+    } else {
+      result[level] = [node.val];
+    }
+
+    if (node.right) stack.push({ node: node.right, level: level + 1 });
+    if (node.left) stack.push({ node: node.left, level: level + 1 });
+  }
+
+  result.forEach((el) => {
+    arr.push(avg(el));
+  });
+  return arr;
+};
+
+function avg(array) {
+  let average = 0;
+  for (let i = 0; i < array.length; i++) {
+    average = average + array[i];
+    console.log(average);
+  }
+  let result = average / array.length;
+
+  return result;
+};
