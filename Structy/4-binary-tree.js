@@ -217,4 +217,15 @@ function avg(array) {
   let result = average / array.length;
 
   return result;
+}
+
+//----------------------------------------------------------
+// leaf list
+
+const leafList = (root) => {
+  // todo
+  if (root === null) return [];
+  if (root.left === null && root.right === null) return [root.val];
+
+  return [...leafList(root.left), ...leafList(root.right)];
 };
